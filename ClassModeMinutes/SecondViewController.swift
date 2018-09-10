@@ -13,12 +13,12 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var scoreOneLabel: UILabel!
     @IBOutlet weak var label: UILabel!
     var highString = String()
-    var scoreOne = String()
+    var scoreList = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         label.text = highString
         
-        scoreOneLabel.text = scoreOne
+        scoreOneLabel.text = scoreList
         scoreOneLabel.sizeToFit()
         // Do any additional setup after loading the view.
     }

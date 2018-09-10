@@ -35,10 +35,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         //retrieves the high score and the corresponding date
-        let userDefaults = Foundation.UserDefaults.standard
-        score = userDefaults.integer(forKey: "Key")
-        let userDefaults2 = Foundation.UserDefaults.standard
-        let scoreDate = userDefaults2.string(forKey: "Key2")
+        let highDefault = Foundation.UserDefaults.standard
+        score = highDefault.integer(forKey: "highScoreKey")
+        let finalDateDefault = Foundation.UserDefaults.standard
+        let scoreDate = finalDateDefault.string(forKey: "finalDateKey")
         
         //retrieves the day and month from when the submit button was last clicked
         let dayDefaults = Foundation.UserDefaults.standard
@@ -75,7 +75,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var secondController = segue.destination as! SecondViewController
         secondController.highString = highScoreString
-        secondController.scoreOne = thisScoreString
+        secondController.scoreList = thisScoreString
     }
     
     
@@ -243,11 +243,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
             if (points >= score)
             {
                 let highScore = points
-                let userDefaults = Foundation.UserDefaults.standard
-                userDefaults.set(highScore, forKey: "Key")
-                let userDefaults2 = Foundation.UserDefaults.standard
+                let highDefaults = Foundation.UserDefaults.standard
+                highDefaults.set(highScore, forKey: "highScoreKey")
+                let finalDateDefaults = Foundation.UserDefaults.standard
                 let finalDate = dateString
-                userDefaults2.set(finalDate, forKey: "Key2")
+                finalDateDefaults.set(finalDate, forKey: "finalDateKey")
                 highScoreString = "\(points) point(s) scored on " + "\(dateString ?? "")"
             }
             
